@@ -5,26 +5,27 @@ import _ from "underscore";
 export class FlightSearch extends Component {
   constructor() {
     super();
-
     this.state = {
       departure: "",
       arrival: "",
     };
-
-    this._handleInput = this._handleInput.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleChange = this._handleChange.bind(this);
   }
+  
 
-  _handleInput(e) {
-    const target = e.target;
-    const value = target.type === "text";
-    const name = target.name;
+  _handleChange(e) {
+    this.setState({departure: e.target.value});
+    // const target = e.target;
+    // const value = target.type === "select";
+    // const name = target.name;
 
-    this.setState({ [name]: value });
+    // this.setState({ [name]: value });
   }
 
   _handleSubmit(e) {
-    console.log(e.target);
     e.preventDefault();
+    console.log(this.state);
   }
 
   render() {
@@ -34,7 +35,7 @@ export class FlightSearch extends Component {
         <form onSubmit={this._handleSubmit}>
           <label htmlFor="departure">
             From:
-            <select name="departure" id="departure" required>
+            <select value={this.state.departure} onChange={this._handleInput} name="departure" type="select" required>
               <option value="">--Please choose an option--</option>
               <option value="brisbane">Brisbane</option>
               <option value="sydney">Sydney</option>
@@ -45,9 +46,9 @@ export class FlightSearch extends Component {
             </select>
           </label>
 
-          <label htmlFor="arrival">
+          {/* <label htmlFor="arrival">
             To:
-            <select name="arrival" id="arrival" required>
+            <select name="arrival" type="select" required>
               <option value="">--Please choose an option--</option>
               <option value="brisbane">Brisbane</option>
               <option value="sydney">Sydney</option>
@@ -56,7 +57,7 @@ export class FlightSearch extends Component {
               <option value="melbourne">Melbourne</option>
               <option value="hobart">Hobart</option>
             </select>
-          </label>
+          </label> */}
           <button
             type="submit"
             value="submit"
