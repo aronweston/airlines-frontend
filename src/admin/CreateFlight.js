@@ -5,8 +5,9 @@ export class CreateFlight extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isAdmin: false
+            isAdmin: true
         }
+        this.isAdmin = true;
     }
 
     //TODO: bring in the planes data from the server and loop through them as values for the plane choice like in Rails
