@@ -13,32 +13,25 @@ export default function SingleFlight() {
     const flightsServer = `http://localhost:3000/flights/${id}.json`
 
 
-    const get = (url, setter, set, callBack) => {
-        axios.get(url).then((res) => {
-            setter(res.data);
-            callBack(set)
-        }).catch((err) => console.error(err));
-    }
+    // const getFlights = () => {
+    //     axios.get(bookingServer).then((res) => {
+    //         setFlightData(res.data)
+            
+    //     }).catch((err) => console.error(err));
 
-    useEffect(() => {
-        //get all flights
-        get(flightsServer, setFlightData, flightData, (data) => {
-            console.log(data);
-        })
+    // }
 
-        get(bookingServer, setBookingData, bookingData, (data) => {
-            console.log(data);
-        })
+    // useEffect(() => {
+    //     //get all flights
+    //     get(flightsServer, setFlightData, flightData, (data) => {
+    //         console.log(data);
+    //     })
+
+    //     get(bookingServer, setBookingData, bookingData, (data) => {
+    //         console.log(data);
+    //     })
    
-    }, [])
-
-    
-    
- 
-        
-
-
-   
+    // }, [])
 
 
     return (
