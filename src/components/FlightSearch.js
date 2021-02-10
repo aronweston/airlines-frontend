@@ -7,32 +7,40 @@ export class FlightSearch extends Component {
     super(props);
 
     this.state = {
-      value: "please choose an option",
+      departure: "",
+      arrival: "",
+      //   value: "please choose an option",
     };
 
-    this._handleChange = this._handleChange.bind(this);
+    this._handleDeparture = this._handleDeparture.bind(this);
+    this._handleArrival = this._handleArrival.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-  _handleChange(e) {
-    this.setState({ value: e.target.value });
+  _handleDeparture(e) {
+    this.setState({ departure: e.target.value });
+  }
+
+  _handleArrival(e) {
+    this.setState({ arrival: e.target.value });
   }
 
   _handleSubmit(e) {
-    console.log(this.state.value);
     e.preventDefault();
+    console.log(this.state);
   }
 
   render() {
+    console.log(this.state);
     return (
-      <div className="bg-red-500 rounder-md text-white my-10 p-4">
+      <div className="bg-red-500 rounder-md text-black my-10 p-4">
         <h2>Search Flights</h2>
         <form onSubmit={this._handleSubmit}>
           <label htmlFor="departure">
             From:
             <select
-              value={this.state.value}
-              onChange={this._handleChange}
+              value={this.state.departure}
+              onChange={this._handleDeparture}
               name="departure"
               id="departure"
             >
@@ -49,8 +57,8 @@ export class FlightSearch extends Component {
           <label htmlFor="arrival">
             To:
             <select
-              value={this.state.value}
-              onChange={this._handleChange}
+              value={this.state.arrival}
+              onChange={this._handleArrival}
               name="arrival"
               id="arrival"
               required
@@ -64,8 +72,8 @@ export class FlightSearch extends Component {
               <option value="hobart">Hobart</option>
             </select>
           </label>
-
           <button
+            onClick={this._handleSubmit}
             type="submit"
             value="submit"
             className="bg-indigo-500 text-white rounded-md px-4 py-2 m-2"
