@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <div className="container mx-auto px-5 max-width-lg my-10">
       <Switch>
-        <Route component={ Flights } path='/' exact />
+        <Route component={ Search } path='/' exact />
         <Route component={ Planes } path='/planes' />
         <Route component={ Flights } path='/flights/' />
         <Route component={ SingleFlight } path='/flights/:id' />

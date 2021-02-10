@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import FlightSearch from '../components/FlightSearch'
 
 export class Search extends Component {
+    constructor() {
+        super()
+        this.state = {
+            undefined: undefined
+        }
+    }
+    
+
+
+
     render() {
         return (
             <div>

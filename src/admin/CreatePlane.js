@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 
 export class CreatePlane extends Component {
+    constructor(props) {
+        super(props)
+        this.isAdmin = true;
+    }
 
     render() {
+        if (this.isAdmin) {
         return (
             <div className='bg-red-500 rounder-md text-white my-10 p-4'>
                 Create Plane
@@ -21,6 +26,9 @@ export class CreatePlane extends Component {
                 </form>
             </div>
         )
+        } else {
+            return null;
+        }
     }
 }
 
