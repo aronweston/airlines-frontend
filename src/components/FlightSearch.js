@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
-import _ from "underscore";
 
 export class FlightSearch extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       departure: "",
-      arrival: "",
-      //   value: "please choose an option",
+      arrival: ""
     };
 
     this._handleDeparture = this._handleDeparture.bind(this);
@@ -27,16 +23,14 @@ export class FlightSearch extends Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    this.props.onSubmit(this.state.departure, this.state.arrival)
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="bg-red-500 rounder-md text-black my-10 p-4">
-        <h2>Search Flights</h2>
         <form onSubmit={this._handleSubmit}>
-          <label htmlFor="departure">
+          <label className="inline-block" htmlFor="departure">
             From:
             <select
               value={this.state.departure}
@@ -53,7 +47,7 @@ export class FlightSearch extends Component {
               <option value="hobart">Hobart</option>
             </select>
           </label>
-
+          <br></br>
           <label htmlFor="arrival">
             To:
             <select
@@ -72,10 +66,9 @@ export class FlightSearch extends Component {
               <option value="hobart">Hobart</option>
             </select>
           </label>
+          <br/>
           <button
-            onClick={this._handleSubmit}
             type="submit"
-            value="submit"
             className="bg-indigo-500 text-white rounded-md px-4 py-2 m-2"
           >
             Search Flight

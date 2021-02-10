@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import Seat from '../components/Seat'
 
 export class Plane extends Component {
+    constructor() {
+        super()
+    }
+
     render() {
         return (
             <div>
