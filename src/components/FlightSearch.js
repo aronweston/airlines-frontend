@@ -3,27 +3,23 @@ import axios from "axios";
 import _ from "underscore";
 
 export class FlightSearch extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      departure: "",
-      arrival: "",
+      value: "please choose an option",
     };
 
-    this._handleInput = this._handleInput.bind(this);
+    this._handleChange = this._handleChange.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-  _handleInput(e) {
-    const target = e.target;
-    const value = target.type === "text";
-    const name = target.name;
-
-    this.setState({ [name]: value });
+  _handleChange(e) {
+    this.setState({ value: e.target.value });
   }
 
   _handleSubmit(e) {
-    console.log(e.target);
+    console.log(this.state.value);
     e.preventDefault();
   }
 
@@ -34,7 +30,12 @@ export class FlightSearch extends Component {
         <form onSubmit={this._handleSubmit}>
           <label htmlFor="departure">
             From:
-            <select name="departure" id="departure" required>
+            <select
+              value={this.state.value}
+              onChange={this._handleChange}
+              name="departure"
+              id="departure"
+            >
               <option value="">--Please choose an option--</option>
               <option value="brisbane">Brisbane</option>
               <option value="sydney">Sydney</option>
@@ -47,7 +48,13 @@ export class FlightSearch extends Component {
 
           <label htmlFor="arrival">
             To:
-            <select name="arrival" id="arrival" required>
+            <select
+              value={this.state.value}
+              onChange={this._handleChange}
+              name="arrival"
+              id="arrival"
+              required
+            >
               <option value="">--Please choose an option--</option>
               <option value="brisbane">Brisbane</option>
               <option value="sydney">Sydney</option>
@@ -57,6 +64,7 @@ export class FlightSearch extends Component {
               <option value="hobart">Hobart</option>
             </select>
           </label>
+
           <button
             type="submit"
             value="submit"
