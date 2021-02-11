@@ -11,9 +11,6 @@ export class Flights extends Component {
         this.state = {
             flights: []
         }
-   
-
-        
     }
     
     componentDidMount() {
@@ -28,7 +25,6 @@ export class Flights extends Component {
         }
         getFlights();
     }
-
 
     render() {
         return (
@@ -46,12 +42,12 @@ export class Flights extends Component {
                 </thead>
                 <tbody>
                 {this.state.flights && this.state.flights.map((flight) => 
-                    <tr key={flight.id} className="">
+                    <tr key={flight.id} className="text-left border-b-2 border-gray-300 rounded-b">
                         <td className="px-4 py-3">{new Date(flight.date).toLocaleDateString()}</td>
-                        <td className="px-4 py-3"><Link to={`flights/${flight.id}`}>{flight.flight_number}</Link></td>
+                        <td className="px-4 py-3"><Link className="hover:underline" to={`flights/${flight.id}`}>{flight.flight_number}</Link></td>
                         <td className="px-4 py-3">{flight.departure.toUpperCase()}</td> 
                         <td className="px-4 py-3">{flight.arrival.toUpperCase()}</td>
-                        <td className="px-4 py-3">{flight.arrival.toUpperCase()}</td>
+                        <td className="px-4 py-3">{flight.plane.toUpperCase()}</td>
                     </tr>
                  )}        
                 </tbody>

@@ -10,16 +10,16 @@ const SearchResults = (props) => {
         } else {
             return (
                 <div className="grid grid-cols-3 gap-4">
-                        {props.results && props.results.map((flight) => 
-                            <div key={flight.id} className="bg-black text-white p-10 rounded">
-                            <Link to={`/flights/${flight.id}`}>
-                            <ul>
-                                <li>{flight.flight_number}</li>
-                                <li>{flight.departure.toUpperCase()} to {flight.arrival.toUpperCase()}</li>
-                                <li>{new Date(flight.date).toLocaleDateString()}</li>
-                            </ul>      
-                        </Link>
-                        </div>
+                    {props.results && props.results.map((flight) => 
+                    <div key={flight.id} className="bg-black text-white p-10 rounded">
+                    <Link to={`/flights/${flight.id}`}>
+                        <ul>
+                            <li>{flight.flight_number}</li>
+                            <li>{flight.departure.toUpperCase()} to {flight.arrival.toUpperCase()}</li>
+                            <li>{new Date(flight.date).toLocaleDateString()}</li>
+                        </ul>      
+                    </Link>    
+                    </div>
                     )}
                 </div>
             );
