@@ -47,11 +47,11 @@ export class Flights extends Component {
                 <tbody>
                 {this.state.flights && this.state.flights.map((flight) => 
                     <tr key={flight.id} className="">
-                        <td>{new Date(flight.date).toLocaleDateString()}</td>
-                        <Link to={`flights/${flight.id}`}><td>{flight.flight_number}</td></Link>
-                        <td>{flight.departure.toUpperCase()}</td> 
-                        <td>{flight.arrival.toUpperCase()}</td>
-                        <td>{flight.arrival.toUpperCase()}</td>
+                        <td className="px-4 py-3">{new Date(flight.date).toLocaleDateString()}</td>
+                        <td className="px-4 py-3"><Link to={`flights/${flight.id}`}>{flight.flight_number}</Link></td>
+                        <td className="px-4 py-3">{flight.departure.toUpperCase()}</td> 
+                        <td className="px-4 py-3">{flight.arrival.toUpperCase()}</td>
+                        <td className="px-4 py-3">{flight.arrival.toUpperCase()}</td>
                     </tr>
                  )}        
                 </tbody>
