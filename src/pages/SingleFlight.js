@@ -24,13 +24,9 @@ export default function SingleFlight() {
     function getBookings() {
         axios.get(bookingServer)
             .then((res) => {
-                
                 console.log(res.data);
-                const bookings = _(res.data).where({ flight_id: flightData.id });
-                console.log(bookings);
-
-                // setBookingData(res.data)
-
+                const bookings = _(res.data).where({ flight_id: Number(id) });
+                setBookingData(bookings)
             })
             .catch((err) => console.error(err));
     }
@@ -39,8 +35,6 @@ export default function SingleFlight() {
         getFlights();
         getBookings()
     }, [])
-
-
 
     return (
         <div>
