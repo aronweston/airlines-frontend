@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import _ from "underscore";
 
+
 export class FlightSearch extends Component {
   constructor(props) {
     super(props);
@@ -9,13 +10,11 @@ export class FlightSearch extends Component {
     this.state = {
       departure: "",
       arrival: "",
-      //   value: "please choose an option",
     };
 
     this._handleDeparture = this._handleDeparture.bind(this);
     this._handleArrival = this._handleArrival.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
-  }
 
   _handleDeparture(e) {
     this.setState({ departure: e.target.value });
@@ -30,8 +29,8 @@ export class FlightSearch extends Component {
     console.log(this.state);
   }
 
+  
   render() {
-    console.log(this.state);
     return (
       <div className="bg-red-500 rounder-md text-black my-10 p-4">
         <h2>Search Flights</h2>
