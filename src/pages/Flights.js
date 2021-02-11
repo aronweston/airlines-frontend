@@ -46,4 +46,4 @@ export class Flights extends Component {
     }
 }
 
-export default Flights
+export default Flights;

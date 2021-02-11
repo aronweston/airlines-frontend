@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 export class FlightSearch extends Component {
   constructor(props) {
     super(props);
@@ -11,8 +12,9 @@ export class FlightSearch extends Component {
     this._handleDeparture = this._handleDeparture.bind(this);
     this._handleArrival = this._handleArrival.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
-  }
 
+  }
+  
   _handleDeparture(e) {
     this.setState({ departure: e.target.value });
   }
@@ -26,6 +28,7 @@ export class FlightSearch extends Component {
     this.props.onSubmit(this.state.departure, this.state.arrival)
   }
 
+  
   render() {
     return (
       <div className="bg-red-500 rounder-md text-black my-10 p-4">
